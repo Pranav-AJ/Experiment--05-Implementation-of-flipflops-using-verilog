@@ -114,8 +114,9 @@ Q(t+1)=T′Q(t)+TQ(t)′
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
 Developed by:A.J.PRANAV
 RegisterNumber:212222230107
-
+*/
 ## SR FLIP FLOP
+```
 module flipflop1(s,r,clk,q,qbar);
 input s,r,clk;
 output q,qbar;
@@ -128,8 +129,9 @@ begin
 	qbar <= r |(~s & ~q);
 end 
 endmodule
-
+```
 ## JK FLIP FLOP
+```
 module flipflop2(j,k,clk,q,qbar);
 input j,k,clk;
 output q,qbar;
@@ -140,30 +142,52 @@ q <= (j & ~q) | (~k & q);
 qbar <= ~q;
 end 
 endmodule	
-*/
-
-
-
-
-
-
+```
+## T FLIP FLOP
+```
+module flipflop2(t,clk,q,qbar);
+input t,clk;
+output q,qbar;
+reg q,qbar;
+always @ (posedge clk)
+begin 
+	q <= (t & ~q)|(~t & q);
+	qbar <= ~q;
+end
+endmodule
+```
+## D FLIP FLOP
+```
+module flipflops(D,clk,Q,Qbar);
+input D,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=D;
+Qbar=~D;
+end
+endmodule
+```
 ### RTL LOGIC FOR FLIPFLOPS 
-
+## SR FLIP FLOP
 ![SR](./SR%20rtl.png)
-
-
-
-
-
-
-
+## JK FLIP FLOP
+![JK](./JK%20rtl.png)
+## T FLIP FLOP
+![T](./t%20rtl.png)
+## D FLIP FLOP
+![D](./D%20rtl.png)
 ### TIMING DIGRAMS FOR FLIP FLOPS 
-
+## SR FLIP FLOP
 ![SR](./SR%20waveform.png)
-
-
-
-
-
-
+## JK FLIP FLOP
+![JK](./JK%20waveform.png)
+## T FLIP FLOP
+![T](./t%20waveform.png)
+## D FLIP FLOP
+![D](./D%20waveform.png)
 ### RESULTS 
+Implementation-of-flipflops-using-verilog successfully completed.
